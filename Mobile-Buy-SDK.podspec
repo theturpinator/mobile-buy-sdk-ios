@@ -7,8 +7,7 @@ Pod::Spec.new do |s|
   s.homepage            = 'https://github.com/Shopify/mobile-buy-sdk-ios'
   s.author              = 'Shopify Inc.'
   s.platform            = :ios, '10.0'
-  s.source_files        = 'Buy/**/*.{swift}'
-  s.module_name         = 'Buy'
+  s.module_name         = 'MobileBuySDK'
   s.requires_arc        = true
   
   s.license = { 
@@ -22,8 +21,11 @@ Pod::Spec.new do |s|
     :submodules => true 
   }
   
-  s.subspec 'Pay' do |s|
-    s.source_files = 'Pay/**/*.{swift}'
+  s.subspec 'Buy' do |s|
+    s.source_files = 'Buy/**/*.{swift}', 'Dependencies/Swift Gen/support/Sources/GraphQL.swift'
   end
   
+  s.subspec 'Pay' do |s|
+    s.source_files = 'Pay/**/*.{swift}', 'Buy/Log.swift'
+  end
 end
